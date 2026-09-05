@@ -40,7 +40,7 @@ else:
 
 df = load_sample(data_source)
 st.write('## Dataset Preview')
-st.write(df.head)
+st.write(df.head())
 
 
 
