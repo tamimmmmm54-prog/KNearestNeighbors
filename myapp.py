@@ -22,7 +22,7 @@ def load_sample(name):
 
 data_source = st.sidebar.selectbox('Data source',['Upload Dataset','Sample Dataset(Iris)','Sample Dataset(Wine)','Sample Dataset(Breast cancer)'])
 if data_source =='Upload CSV':
-  up_loaded = st.sidebar.file.uploader['Upload CSV',type= ['csv',''txt'])
+  up_loaded = st.sidebar.file.uploader['Upload CSV',type= ['csv','txt'])
 else:
   df = load_sample(data_source)
   if uploaded is not None:
@@ -38,9 +38,10 @@ else:
     st.info('Upload CSV on the left or a sample dataset get started')
     st.stop()
 
-
-
-
+else:
+  df = load_sample(data_source)
+st.write(## Dataset Preview)
+st.write(df.head)
 
 
 
