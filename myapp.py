@@ -38,8 +38,8 @@ else:
     st.info('Upload CSV on the left or a sample dataset get started')
     st.stop()
 
-else:
-  df = load_sample(data_source)
+
+df = load_sample(data_source)
 st.write(## Dataset Preview)
 st.write(df.head)
 
