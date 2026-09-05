@@ -30,7 +30,7 @@ if data_source =='Upload CSV':
       df = pd.read_csv(uploaded)
       df = df.dropna()
       st.success('Loaded Sample Data')
-     except Exception as e:
+    except Exception as e:
       st.sidebar.error(f'couldnot read file:{e}')
       
     
