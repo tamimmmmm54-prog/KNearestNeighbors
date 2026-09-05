@@ -9,11 +9,11 @@ st.sidebar.header('Dataset & Preprocessing')
 
 from sklearn.datasets import load_iris,load_wine,load_breast_cancer
 def load_sample(name):
-  if name == 'Iris':
+  if name == 'Sample Dataset(Iris)':
     df = load_iris(as_frame= True)
-  elif name == 'Wine':
+  elif name == 'Sample Dataset(Wine)':
     df = load_wine(as_frame=True)
-  elif name == 'Breast canccer':
+  elif name == 'Sample Dataset(Breast cancer)':
     df = load_breast_cancer(as_frame = True)
   else:
     return None
