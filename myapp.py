@@ -20,10 +20,9 @@ def load_sample(name):
   df= pd.concat([df.frame.reset_index(drop=True)],axis=1)
   return df
 
-data_source = st.sidebar.selectbox('Data source',['Upload Dataset','Sample Dataset(Iris)','Sample Dataset(Wine)','Sample Dataset(Breast cancer)'])
+data_source = st.sidebar.selectbox('Data source',['Upload CSV','Sample Dataset(Iris)','Sample Dataset(Wine)','Sample Dataset(Breast cancer)'])
 if data_source =='Upload CSV':
   uploaded = st.sidebar.file_uploader('Upload CSV', type=['csv', 'txt'])
-else:
   df = load_sample(data_source)
   if uploaded is not None:
     try:
@@ -34,7 +33,7 @@ else:
       st.sidebar.error(f'couldnot read file:{e}')
       
     
-  else:
+else:
     st.info('Upload CSV on the left or a sample dataset get started')
     st.stop()
 
