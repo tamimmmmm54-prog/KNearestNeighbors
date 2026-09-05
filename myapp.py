@@ -22,12 +22,12 @@ def load_sample(name):
 
 data_source = st.sidebar.selectbox('Data source',['Upload Dataset','Sample Dataset(Iris)','Sample Dataset(Wine)','Sample Dataset(Breast cancer)'])
 if data_source =='Upload CSV':
-  uploaded = st.sidebar.file_uploader['Upload CSV',type= ['csv','txt'])
+  uploaded = st.sidebar.file_uploader('Upload CSV', type=['csv', 'txt'])
 else:
   df = load_sample(data_source)
   if uploaded is not None:
     try:
-      df = pd.read_csv(Upoladed)
+      df = pd.read_csv(uploaded)
       df = df.dropna()
       st.success('Loaded Sample Data')
     except exception as e:
