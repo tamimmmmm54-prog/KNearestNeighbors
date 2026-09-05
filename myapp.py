@@ -18,8 +18,7 @@ def load_sample(name):
   else:
     return None
   df= pd.concat([df.frame.reset_index(drop=True)],axis=1)
-  return df
-
+return df
 data_source = st.sidebar.selectbox('Data source',['Upload CSV','Sample dataset(Iris)','Sample dataset(Wine)','Sample dataset(Breast cancer)'])
 
 if data_source =='Upload CSV':
