@@ -20,7 +20,7 @@ def load_sample(name):
   df= pd.concat[df.frame.reset_index(drop=True),axis=1]
   return df
 
-data_sourrce = st.sidebar.selectbox['Upload Dataset','Sample Dataset(Iris)','Sample Dataset(Wine)','Sample Dataset(Breast cancer)]
+data_sourrce = st.sidebar.selectbox['Upload Dataset','Sample Dataset(Iris)','Sample Dataset(Wine)','Sample Dataset(Breast cancer)']
 
 
 
