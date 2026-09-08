@@ -53,7 +53,7 @@ if len(numeric_cols) < 2:
   st.stop()
 
 target_cols = st.selectbox('Select Output Target Variable',numeric_cols)
-features = [for c in numeric_cols if c != target_cols]
+features = [c for c in numeric_cols if c != target_cols]
 st.multiselect('features (numeric)',options=features,default=features)
 
 
