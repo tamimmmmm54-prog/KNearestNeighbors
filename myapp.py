@@ -45,9 +45,12 @@ st.write('## Dataset Preview')
 st.write(df.head())
 
 
+st.subheader('Data Preprocessing')
 
-
-
+numeric_cols = df.select_dtypes(include=np.number).columns.tolist()
+if len(numeric_cols) < 2:
+  st.error('Need at least two nummeric columns for Knearest neighbors')
+  st.stop()
 
 
 
