@@ -16,7 +16,7 @@ def load_sample(name):
   elif name == 'Sample dataset (Breast Cancer)':
     df = load_breast_cancer(as_frame = True)
   else:
-    return None
+      return None
   df= pd.concat([df.frame.reset_index(drop=True)],axis=1)
   return df
 
@@ -34,11 +34,11 @@ if data_source =='Upload CSV':
       st.stop()
     
   else:
-    st.info('Upload CSV on the left or a sample dataset get started')
-    st.stop()
+      st.info('Upload CSV on the left or a sample dataset get started')
+      st.stop()
 
 else:
-  df = load_sample(data_source)
+    df = load_sample(data_source)
 
 
 st.write('## Dataset Preview')
