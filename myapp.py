@@ -52,5 +52,20 @@ if len(numeric_cols) < 2:
   st.error('Need at least two nummeric columns for Knearest neighbors')
   st.stop()
 
+target_cols = st.selectbox('Select Output Target Variable',numeric_cols)
+features = [for c in numeric_cols if c != target_cols]
+st.multiselect('features (numeric)',options=features,default=features)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
