@@ -31,7 +31,7 @@ if data_source =='Upload CSV':
       st.success('Loaded Sample Data')
     except Exception as e:
       st.sidebar.error(f'couldnot read file:{e}')
-      
+      st.stop()
     
   else:
     st.info('Upload CSV on the left or a sample dataset get started')
