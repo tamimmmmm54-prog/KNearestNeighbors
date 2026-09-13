@@ -62,11 +62,14 @@ st.sidebar.header('Preprocessing & Model')
 scale_method = st.sidebar.selectbox('Scaling',['None', 'StandardScaler','MinMax Scaling'])
 use_pca = st.sidebar.checkbox('Project to 2 components with PCA for vizualization',value=True)
 text_size = st.sidebar.slider('Test set size (%)',min_value=5,max_value=50,value=20)
-st.sidebar.number_input('Random seed',value = 42,step=1)
+random_state = st.sidebar.number_input('Random seed',value = 42,step=1)
 st.sidebar.subheader('KNN hyperparameter')
-st.sidebar.slider('k(neighbors)',min_value=1,max_value=50,value=5)
+k = st.sidebar.slider('k(neighbors)',min_value=1,max_value=50,value=5)
 st.sidebar.selectbox('Weight function',['Uniform','Distance'])
 st.sidebar.selectbox('Distance metrics',['minkowski','euclidean','manhattan'])
+
+from sklearn.model_selection import train_test_split
+x_train,x_test,y_train,y_test = train_test_split(x,y,test_size=text_size/100.0,random_state=int(random_state))
 
 
 
