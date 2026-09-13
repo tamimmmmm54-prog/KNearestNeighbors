@@ -60,6 +60,24 @@ x = df[features].copy()
 y = df[target_cols].copy()
 st.sidebar.header('Preprocessing & Model')
 scale_method = st.sidebar.selectbox('Scaling',['None', 'StandardScaler','MinMax Scaling'])
+use_pca = st.sidebar.checkbox('Project to 2 components with PCA for vizualization',value=True)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
