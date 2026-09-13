@@ -56,8 +56,10 @@ target_cols = st.selectbox('Select Output Target Variable',numeric_cols)
 features = [c for c in numeric_cols if c != target_cols]
 st.multiselect('features (numeric)',options=features,default=features)
 
-
-
+x = df[features].copy()
+y = df[target_cols].copy()
+st.sidebar('Preprocessing & Model')
+scale_method = st.sidebar.selectbox('Scaling',['None', 'StandardScaler','MinMax Scaling'])
 
 
 
