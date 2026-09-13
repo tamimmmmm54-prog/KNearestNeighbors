@@ -61,8 +61,8 @@ y = df[target_cols].copy()
 st.sidebar.header('Preprocessing & Model')
 scale_method = st.sidebar.selectbox('Scaling',['None', 'StandardScaler','MinMax Scaling'])
 use_pca = st.sidebar.checkbox('Project to 2 components with PCA for vizualization',value=True)
-
-
+text_size = st.sidebar.slider('Text me size (%)',min_value=5,max_value=50,value=20)
+st.sidebar.number_input('Random seed',value = 42,step=1)
 
 
 
