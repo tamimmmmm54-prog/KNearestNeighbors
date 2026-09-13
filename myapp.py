@@ -58,7 +58,7 @@ st.multiselect('features (numeric)',options=features,default=features)
 
 x = df[features].copy()
 y = df[target_cols].copy()
-st.sidebar('Preprocessing & Model')
+st.sidebar.header('Preprocessing & Model')
 scale_method = st.sidebar.selectbox('Scaling',['None', 'StandardScaler','MinMax Scaling'])
 
 
