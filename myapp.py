@@ -96,13 +96,13 @@ import matplotlib.pyplot as plt
 st.write('##Model Evaluatio')
 col1, col2 =st.columns([1, 1])
 with col1:
-  st.metric('Accuracy': f'{acc=3f}')
+  st.metric('Accuracy': f'{acc:.3f}')
   st.write('##Classification report')
   st.dataframe(pd.DataFrame(report),transpose())
 
 with col2:  
   st.write('##Confusion Metrix')
-  fig, ax = plt.subplot()
+  fig, ax = plt.subplots()
   im = ax.mathshow()
   for (i,j), val in npndenumerate(cm):
     ax.text(i, j, int(val),ha='center',va= 'center')
