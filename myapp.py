@@ -96,7 +96,7 @@ import matplotlib.pyplot as plt
 st.write('##Model Evaluatio')
 col1, col2 =st.columns([1, 1])
 with col1:
-  st.metric('Accuracy': f'{acc:.3f}')
+  st.metric('Accuracy', f'{acc:.3f}')
   st.write('##Classification report')
   st.dataframe(pd.DataFrame(report),transpose())
 
