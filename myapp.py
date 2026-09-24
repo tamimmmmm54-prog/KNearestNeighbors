@@ -84,27 +84,27 @@ else:
   scealer = None
 
 from sklearn.neighbors import KNeighborsClassifier
-clf = KneighborsClassifier(n_neighbors=int(k),weights = weights, metric = metric)
+clf = KNeighborsClassifier(n_neighbors=int(k),weights = weights, metric = metric)
 clf.fit(x_train,y_train)
 
 from sklearn.metrics import accuracy_score, classification_report,confusion_metrix
 y_pred = clf.predict(x_test)
 acc = accuracy_score(y_test, y_pred)
 report = classification_report(y_test, y_pred, output_dict = True)
-cm = confusion_Matrix(y_test, y_pred)
+cm = confusion_matrix(y_test, y_pred)
 import matplotlib.pyplot as plt
 st.write('##Model Evaluatio')
 col1, col2 =st.columns([1, 1])
 with col1:
   st.metric('Accuracy', f'{acc:.3f}')
   st.write('##Classification report')
-  st.dataframe(pd.DataFrame(report),transpose())
+  st.dataframe(pd.DataFrame(report).transpose())
 
 with col2:  
   st.write('##Confusion Metrix')
   fig, ax = plt.subplots()
-  im = ax.mathshow()
-  for (i,j), val in npndenumerate(cm):
+  im = ax.matshow()
+  for (i,j), val in np.ndenumerate(cm):
     ax.text(i, j, int(val),ha='center',va= 'center')
   ax.set_xlabel('Predicted')
   ax.set_ylabel('Actual')
