@@ -65,8 +65,8 @@ text_size = st.sidebar.slider('Test set size (%)',min_value=5,max_value=50,value
 random_state = st.sidebar.number_input('Random seed',value = 42,step=1)
 st.sidebar.subheader('KNN hyperparameter')
 k = st.sidebar.slider('k(neighbors)',min_value=1,max_value=50,value=5)
-st.sidebar.selectbox('Weight function',['Uniform','Distance'])
-st.sidebar.selectbox('Distance metrics',['minkowski','euclidean','manhattan'])
+weights = st.sidebar.selectbox('Weight function',['Uniform','Distance'])
+metric = st.sidebar.selectbox('Distance metrics',['minkowski','euclidean','manhattan'])
 
 from sklearn.model_selection import train_test_split
 x_train,x_test,y_train,y_test = train_test_split(x,y,test_size=text_size/100.0,random_state=int(random_state))
@@ -83,8 +83,32 @@ elif scale_method == 'MinMax Scaling':
 else:
   scealer = None
 
+from sklearn.neighbors import KNeighborsClassifiers
+clf = KneighborsClassifier(n_neighbors=int(k),weights = weights, metric = metric)
+clf.fit(x_train,y_train)
 
+from sklearn.metrics import accuracy_score, classification_report,confusion_metrix
+y_pred = clf.predict(x_test)
+acc = accuracy_score(y_test, y_pred)
+report = classification_report(y_test, y_pred, output_dict = True)
+cm = confusion_Matrix(y_test, y_pred)
+import matplotlib.pyplot as plt
+st.write('##Model Evaluatio')
+col1, col2 =st.columns([1, 1])
+with col1:
+  st.metric('Accuracy': f'{acc=3f}')
+  st.write('##Classification report')
+  st.dataframe(pd.DataFrame(report),transpose())
 
+with col2:  
+  st.write('##Confusion Metrix')
+  fig, ax = plt.subplot()
+  im = ax.mathshow()
+  for (i,j), val in npndenumerate(cm):
+    ax.text(i, j, int(val),ha='center',va= 'center')
+  ax.set_xlabel('Predicted')
+  ax.set_ylabel('Actual')
+  st.pyplot(fig)
 
 
 
