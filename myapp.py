@@ -83,7 +83,7 @@ elif scale_method == 'MinMax Scaling':
 else:
   scealer = None
 
-from sklearn.neighbors import KNeighborsClassifiers
+from sklearn.neighbors import KNeighborsClassifier
 clf = KneighborsClassifier(n_neighbors=int(k),weights = weights, metric = metric)
 clf.fit(x_train,y_train)
 
