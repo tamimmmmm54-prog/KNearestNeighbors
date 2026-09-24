@@ -65,7 +65,7 @@ text_size = st.sidebar.slider('Test set size (%)',min_value=5,max_value=50,value
 random_state = st.sidebar.number_input('Random seed',value = 42,step=1)
 st.sidebar.subheader('KNN hyperparameter')
 k = st.sidebar.slider('k(neighbors)',min_value=1,max_value=50,value=5)
-weights = st.sidebar.selectbox('Weight function',['Uniform','Distance'])
+weights = st.sidebar.selectbox('Weight function',['uniform','distance'])
 metric = st.sidebar.selectbox('Distance metrics',['minkowski','euclidean','manhattan'])
 
 from sklearn.model_selection import train_test_split
