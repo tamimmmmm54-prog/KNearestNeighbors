@@ -103,7 +103,7 @@ with col1:
 with col2:  
   st.write('##Confusion Metrix')
   fig, ax = plt.subplots()
-  im = ax.matshow()
+  im = ax.matshow(cm)
   for (i,j), val in np.ndenumerate(cm):
     ax.text(i, j, int(val),ha='center',va= 'center')
   ax.set_xlabel('Predicted')
