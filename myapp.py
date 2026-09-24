@@ -71,6 +71,17 @@ st.sidebar.selectbox('Distance metrics',['minkowski','euclidean','manhattan'])
 from sklearn.model_selection import train_test_split
 x_train,x_test,y_train,y_test = train_test_split(x,y,test_size=text_size/100.0,random_state=int(random_state))
 
+from sklearn.preprocessing import StandardScaler, MinMaxScaler
+if scale_method == 'StandardScaler':
+  scaler = StandardScaler()
+  X_train = pd.DataFrame(scaler.fit_transform(x_train), columns = features)
+  X_test = pd.DataFrame(scaler.transform(x_test),columns = features)
+elif scale_method == 'MinMax Scaling':
+  scaler = MinMaxScaler()
+  X_train = pd.DataFrame(scaler.fit_transform(x_train), columns = features)
+  X_test = pd.DataFrame(scaler.transform(x_test),columns = features)
+else:
+  scealer = None
 
 
 
